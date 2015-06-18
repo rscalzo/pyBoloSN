@@ -1,0 +1,9 @@
+# Python byte-compiled files
+*.pyc
+
+# Diagnostic plots
+*.png
+*.eps
+
+# Edited text files
+*~
