@@ -13,6 +13,13 @@ The original pyBoloSN code base was used in [Scalzo et al. (2014b)](http://adsab
 Quick start guide
 -----------------
 
+Dependencies, which I recommend you handle with `conda`, include:
+* `numpy`/`scipy`/`matplotlib` (as you might expect)
+* `emcee` (at least v2.2.1)
+* `sklearn` (no later than 0.17), since at present we're using the deprecated `sklearn.gaussian_process.GaussianProcess` regression class -- this needs fixing!
+
+If you want to use the `Jeffery99.Qint` class to tabulate form factors for <sup>56</sup>Ni distribution (see [Jeffery 1999](http://adsabs.harvard.edu/abs/1999astro.ph..7015J)), you'll also need the VEGAS numerical integrator from `pygsl`; don't try this unless you know what you're doing (you might want to email me about it).
+
 For a quick out-of-the-box start, suppose we want to reproduce the results for SN 2005el using the light curves given in the Scalzo+ 2014b data release, hosted [here](https://snfactory.lbl.gov/snf/data/SNfactory_Scalzo_etal_2014_DR.tar.gz) by the SNfactory collaboration.  To do this we might type
 
     run_S12_mcmc.py path/to/SN2005el/bololc_ebmv=*.txt --trise=17.0 --trise_err=2.0 --alpha=1.2 --alpha_err=0.2 --mu_off=0.00 --mu_err=0.13 --qtabfname=Jeffery99/j99_qgp_exp.pkl --nsamples=300000 --sampler=PTSampler
